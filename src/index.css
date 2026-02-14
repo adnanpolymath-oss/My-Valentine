@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 340 80% 88%;
+    --foreground: 340 20% 15%;
+
+    --card: 340 60% 95%;
+    --card-foreground: 340 20% 15%;
+
+    --popover: 340 60% 95%;
+    --popover-foreground: 340 20% 15%;
+
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 60% 70%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 340 30% 85%;
+    --muted-foreground: 340 15% 40%;
+
+    --accent: 15 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 40% 80%;
+    --input: 340 40% 80%;
+    --ring: 340 75% 55%;
+
+    --radius: 1rem;
+
+    --rose-deep: 340 85% 45%;
+    --rose-light: 340 80% 75%;
+    --rose-glow: 340 90% 65%;
+    --pink-soft: 330 70% 85%;
+    --gold-warm: 38 80% 60%;
+    --cream: 30 50% 96%;
+
+    --gradient-romantic: linear-gradient(135deg, hsl(340 85% 45%), hsl(350 80% 55%), hsl(340 75% 55%));
+    --gradient-sunset: linear-gradient(180deg, hsl(340 85% 45%), hsl(350 70% 50%), hsl(15 80% 60%));
+    --gradient-soft: linear-gradient(135deg, hsl(340 80% 88%), hsl(330 70% 85%));
+
+    --font-cursive: 'Dancing Script', cursive;
+    --font-body: 'Quicksand', sans-serif;
+
+    --shadow-romantic: 0 8px 32px -8px hsl(340 75% 55% / 0.35);
+    --shadow-glow: 0 0 30px hsl(340 90% 65% / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(340 75% 55% / 0.2);
+  }
+
+  .dark {
+    --background: 340 30% 8%;
+    --foreground: 340 20% 90%;
+    --card: 340 25% 12%;
+    --card-foreground: 340 20% 90%;
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 50% 30%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 340 20% 18%;
+    --muted-foreground: 340 15% 60%;
+    --accent: 15 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 340 25% 20%;
+    --input: 340 25% 20%;
+    --ring: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cursive);
+  }
+}
+
+@layer utilities {
+  .font-cursive {
+    font-family: var(--font-cursive);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  .gradient-soft {
+    background: var(--gradient-soft);
+  }
+  .shadow-romantic {
+    box-shadow: var(--shadow-romantic);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .text-gradient {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Floating hearts animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) rotate(15deg) scale(1);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(-15deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(340 90% 65% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(340 90% 65% / 0.6); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
