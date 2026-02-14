@@ -11,7 +11,7 @@ const MusicPlayer = () => {
     // Replace the src with your preferred audio file
     const audio = new Audio();
     // Blue by Yung Kai instrumental - user should replace with their own audio file
-    audio.src = "https://soundcloud.com/rukateto/blue-yung-kai-piano-cover?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing";
+    audio.src = "src/components/1.mp3";
     audio.loop = true;
     audio.volume = 0.3;
     audioRef.current = audio;
